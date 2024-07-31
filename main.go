@@ -63,6 +63,23 @@ func wordCount(INPUT, QUERY []string) []int {
 	return result
 }
 
+func matrixDiagonal(matrix [][]int) int {
+	var diagonal1 int
+	var diagonal2 int
+	var x = len(matrix) - 1
+
+	for i := 0; i < len(matrix); i++ {
+		diagonal1 += matrix[i][i]
+		diagonal2 += matrix[i][x]
+		x--
+	}
+	fmt.Println(diagonal1)
+	fmt.Println(diagonal2)
+
+	return diagonal1 - diagonal2
+
+}
+
 func main() {
 	// Soal Nomor 1
 	var s = "NEGIE1"
@@ -76,4 +93,12 @@ func main() {
 	INPUT := []string{"xc", "dz", "bbb", "dz"}
 	QUERY := []string{"bbb", "ac", "dz"}
 	fmt.Println(wordCount(INPUT, QUERY))
+
+	// Soal Nomor 4
+	matrix := [][]int{
+		{1, 2, 0},
+		{4, 5, 6},
+		{7, 8, 9},
+	}
+	fmt.Println(matrixDiagonal(matrix))
 }
